@@ -17,7 +17,7 @@ export function createTestHelpers(testDir: string) {
     fs.writeFileSync(path.join(testDir, ".gitignore"), "");
     execFileSync("git", ["init"], { cwd: testDir, stdio: "pipe" });
     execFileSync("git", ["add", "."], { cwd: testDir, stdio: "pipe" });
-    execFileSync("git", ["commit", "-m", "init"], { cwd: testDir, stdio: "pipe" });
+    execFileSync("git", ["-c", "user.name=test", "-c", "user.email=test@test.com", "commit", "-m", "init"], { cwd: testDir, stdio: "pipe" });
   }
 
   function setupProjectNoGit(files: Record<string, string>) {
