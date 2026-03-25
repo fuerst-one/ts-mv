@@ -11,7 +11,7 @@ Given a file with an inline dynamic type import:
 const ref: import("../types.js").TaskRef = ...;
 ```
 
-After ts-mv rewrites imports in this file, the static `import ... from "../types.js"` declarations are correctly preserved with `.js`, but the inline `import("../types.js")` in the type position has its `.js` extension stripped:
+After ts-shove rewrites imports in this file, the static `import ... from "../types.js"` declarations are correctly preserved with `.js`, but the inline `import("../types.js")` in the type position has its `.js` extension stripped:
 
 ```typescript
 const ref: import("../types").TaskRef = ...;  // WRONG — lost .js

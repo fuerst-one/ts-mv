@@ -1,12 +1,12 @@
 # Contributing
 
-Thanks for your interest in contributing to ts-mv!
+Thanks for your interest in contributing to ts-shove!
 
 ## Development setup
 
 ```bash
-git clone https://github.com/fuerst-one/ts-mv.git
-cd ts-mv
+git clone https://github.com/fuerst-one/ts-shove.git
+cd ts-shove
 pnpm install
 ```
 

@@ -11,7 +11,7 @@ Given a file that imports a directory via its index:
 import { Button } from './atoms';  // resolves to ./atoms/index.ts
 ```
 
-After moving files that cause ts-mv to touch this import, the specifier becomes:
+After moving files that cause ts-shove to touch this import, the specifier becomes:
 ```typescript
 import { Button } from './atoms.js';  // WRONG — should be './atoms/index.js' or './atoms'
 ```

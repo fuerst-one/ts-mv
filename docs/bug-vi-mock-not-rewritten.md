@@ -5,7 +5,7 @@
 
 ## Current behavior
 
-ts-mv detects stale `vi.mock("./old-path")` references after moves and prints warnings like:
+ts-shove detects stale `vi.mock("./old-path")` references after moves and prints warnings like:
 ```
 ⚠ Possible stale reference in src/runner/sync.test.ts: vi.mock("../git.js")
 ```
@@ -39,7 +39,7 @@ Then apply the same `rewriteCallSpecifier()` logic. The path resolution is ident
 
 ## Workaround
 
-After running ts-mv, grep for the warnings and fix manually:
+After running ts-shove, grep for the warnings and fix manually:
 ```bash
 grep -rn 'vi\.mock\|jest\.mock' src/**/*.test.ts
 ```

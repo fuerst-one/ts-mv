@@ -127,6 +127,6 @@ When computing new import paths, `/index` suffixes are stripped from specifiers 
 
 ## /index stripping for dynamic imports and require()
 
-**Behavior**: ts-morph v25+ may produce `import("./dir/index")` or `require("./dir/index")` (with or without `.js` extension) for calls that originally targeted a directory index file. ts-mv automatically strips the `/index` suffix so the specifier stays clean (e.g., `./dir` or `./dir.js`).
+**Behavior**: ts-morph v25+ may produce `import("./dir/index")` or `require("./dir/index")` (with or without `.js` extension) for calls that originally targeted a directory index file. ts-shove automatically strips the `/index` suffix so the specifier stays clean (e.g., `./dir` or `./dir.js`).
 
 **Why**: ts-morph rewrites dynamic import specifiers in some versions but expands the directory shorthand to an explicit `/index` path. This pass normalizes those specifiers back to the directory form.

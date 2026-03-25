@@ -1,4 +1,4 @@
-# ts-mv
+# ts-shove
 
 Move TypeScript files and directories at scale — all import paths are rewritten automatically via ts-morph AST analysis.
 
@@ -9,13 +9,13 @@ Move TypeScript files and directories at scale — all import paths are rewritte
 ## Installation
 
 ```bash
-pnpm add -D ts-mv
+pnpm add -D ts-shove
 ```
 
 Or run directly:
 
 ```bash
-npx ts-mv <source> <destination>
+npx ts-shove <source> <destination>
 ```
 
 ## Quick start
@@ -23,7 +23,7 @@ npx ts-mv <source> <destination>
 ### Move a single file
 
 ```bash
-ts-mv src/components/Button.tsx src/ui/Button.tsx
+ts-shove src/components/Button.tsx src/ui/Button.tsx
 ```
 
 ### Move a directory
@@ -31,13 +31,13 @@ ts-mv src/components/Button.tsx src/ui/Button.tsx
 Trailing slashes indicate a directory move. All files (TS and non-TS) are moved.
 
 ```bash
-ts-mv src/components/ src/ui/
+ts-shove src/components/ src/ui/
 ```
 
 ### Batch move from manifest
 
 ```bash
-ts-mv moves.json
+ts-shove moves.json
 ```
 
 Where `moves.json` contains:
@@ -121,12 +121,12 @@ All alias imports in affected files are converted to relative paths.
 
 ## Dry-run conflict detection
 
-When `--dry-run` (or `dryRun: true` in the manifest) is used, ts-mv checks whether any destination path already exists on disk (and is not itself being moved away). Detected conflicts are reported in the console output and returned in the `MoveResult.conflicts` array. This lets you catch overwrites before any files are touched.
+When `--dry-run` (or `dryRun: true` in the manifest) is used, ts-shove checks whether any destination path already exists on disk (and is not itself being moved away). Detected conflicts are reported in the console output and returned in the `MoveResult.conflicts` array. This lets you catch overwrites before any files are touched.
 
 ## Programmatic usage
 
 ```typescript
-import { executeMoves, type MoveManifest, type MoveResult } from "ts-mv";
+import { executeMoves, type MoveManifest, type MoveResult } from "ts-shove";
 
 const result: MoveResult = executeMoves({
   projectRoot: "/path/to/project",
@@ -154,9 +154,9 @@ if (result.conflicts?.length) {
 
 ## tsconfig and test files
 
-ts-mv uses ts-morph, which loads the project via `tsconfig.json`. **Only files included by tsconfig are analyzed for import rewriting.** If your tsconfig excludes test files (e.g., `"exclude": ["**/*.test.ts"]`), those files' imports will NOT be updated when you move their dependencies.
+ts-shove uses ts-morph, which loads the project via `tsconfig.json`. **Only files included by tsconfig are analyzed for import rewriting.** If your tsconfig excludes test files (e.g., `"exclude": ["**/*.test.ts"]`), those files' imports will NOT be updated when you move their dependencies.
 
-If you try to move a file that is excluded from tsconfig, ts-mv will throw an early error:
+If you try to move a file that is excluded from tsconfig, ts-shove will throw an early error:
 
 ```
 Error: Source file is not included in tsconfig: src/utils.test.ts
@@ -164,10 +164,10 @@ ts-morph cannot rewrite imports for files outside the project.
 Either add it to tsconfig "include" or use --tsconfig to specify a broader config.
 ```
 
-**Recommended approach:** Use a tsconfig that includes your test files. Many projects already have a `tsconfig.json` that includes everything and a separate `tsconfig.build.json` for compilation. Point ts-mv at the broader one:
+**Recommended approach:** Use a tsconfig that includes your test files. Many projects already have a `tsconfig.json` that includes everything and a separate `tsconfig.build.json` for compilation. Point ts-shove at the broader one:
 
 ```bash
-ts-mv --tsconfig tsconfig.json src/old.ts src/new.ts
+ts-shove --tsconfig tsconfig.json src/old.ts src/new.ts
 ```
 
 Or if your main `tsconfig.json` excludes tests, create a `tsconfig.check.json`:
@@ -179,7 +179,7 @@ Or if your main `tsconfig.json` excludes tests, create a `tsconfig.check.json`:
 }
 ```
 
-After a move, ts-mv reports stale-path warnings for string literals (like `vi.mock("./old/path")`) that match moved files but couldn't be automatically rewritten. Review these manually.
+After a move, ts-shove reports stale-path warnings for string literals (like `vi.mock("./old/path")`) that match moved files but couldn't be automatically rewritten. Review these manually.
 
 ## How it works
 
@@ -213,7 +213,7 @@ Requires Node.js 20+ and a `tsconfig.json` at the project root.
 
 ## Platform support
 
-Tested on macOS and Linux (via CI). Windows is expected to work (all path handling uses Node.js `path` module) but has not been tested. If you encounter Windows-specific issues, please [open an issue](https://github.com/fuerst-one/ts-mv/issues).
+Tested on macOS and Linux (via CI). Windows is expected to work (all path handling uses Node.js `path` module) but has not been tested. If you encounter Windows-specific issues, please [open an issue](https://github.com/fuerst-one/ts-shove/issues).
 
 ## Credits
 

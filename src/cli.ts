@@ -6,14 +6,14 @@ import { executeMoves, type AliasMode, type MoveManifest } from "./mover.js";
 
 function printUsage() {
   console.log(`
-ts-mv — Move TypeScript files with automatic import rewriting
+ts-shove — Move TypeScript files with automatic import rewriting
 
 Usage:
-  ts-mv <manifest.json>                    Batch move from manifest file
-  ts-mv <source> <destination>             Move a single file
-  ts-mv <source/dir/> <dest/dir/>          Move a directory (trailing slash)
-  ts-mv --dry-run <manifest.json>          Preview without changes
-  ts-mv --dry-run <source> <destination>   Preview single move
+  ts-shove <manifest.json>                    Batch move from manifest file
+  ts-shove <source> <destination>             Move a single file
+  ts-shove <source/dir/> <dest/dir/>          Move a directory (trailing slash)
+  ts-shove --dry-run <manifest.json>          Preview without changes
+  ts-shove --dry-run <source> <destination>   Preview single move
 
 Manifest format:
   {

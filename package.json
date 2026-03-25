@@ -1,5 +1,5 @@
 {
-  "name": "ts-mv",
+  "name": "ts-shove",
   "version": "1.0.0",
   "description": "Move TypeScript files with automatic import path rewriting via ts-morph AST analysis",
   "type": "module",
@@ -7,10 +7,10 @@
   "author": "Alexander Fuerst <alexander@fuerst.one>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fuerst-one/ts-mv.git"
+    "url": "git+https://github.com/fuerst-one/ts-shove.git"
   },
-  "homepage": "https://github.com/fuerst-one/ts-mv#readme",
-  "bugs": "https://github.com/fuerst-one/ts-mv/issues",
+  "homepage": "https://github.com/fuerst-one/ts-shove#readme",
+  "bugs": "https://github.com/fuerst-one/ts-shove/issues",
   "keywords": [
     "typescript",
     "move",
@@ -27,7 +27,7 @@
     "node": ">=20"
   },
   "bin": {
-    "ts-mv": "dist/cli.js"
+    "ts-shove": "dist/cli.js"
   },
   "exports": {
     ".": {

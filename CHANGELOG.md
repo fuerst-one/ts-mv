@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 
-- CLI tool (`ts-mv`) for moving TypeScript files with automatic import rewriting
+- CLI tool (`ts-shove`) for moving TypeScript files with automatic import rewriting
 - Single file moves, directory moves, and batch moves via JSON manifest
 - Static import rewriting via ts-morph AST analysis
 - Dynamic `import()` expression rewriting
