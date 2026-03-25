@@ -25,7 +25,7 @@ function setupFiles(files: Record<string, string>) {
   // Initialize git so findGitRoot() resolves to TEST_DIR
   execFileSync("git", ["init"], { cwd: TEST_DIR, stdio: "pipe" });
   execFileSync("git", ["add", "."], { cwd: TEST_DIR, stdio: "pipe" });
-  execFileSync("git", ["commit", "-m", "init"], { cwd: TEST_DIR, stdio: "pipe" });
+  execFileSync("git", ["-c", "user.name=test", "-c", "user.email=test@test.com", "commit", "-m", "init"], { cwd: TEST_DIR, stdio: "pipe" });
 }
 
 const TSCONFIG = JSON.stringify({

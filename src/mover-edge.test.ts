@@ -79,7 +79,7 @@ describe("symlinks", () => {
 
     // Stage the symlink in git
     execFileSync("git", ["add", "."], { cwd: TEST_DIR, stdio: "pipe" });
-    execFileSync("git", ["commit", "-m", "add symlink"], { cwd: TEST_DIR, stdio: "pipe" });
+    execFileSync("git", ["-c", "user.name=test", "-c", "user.email=test@test.com", "commit", "-m", "add symlink"], { cwd: TEST_DIR, stdio: "pipe" });
 
     // Move directory — should not crash
     expect(() => {
