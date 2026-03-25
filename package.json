@@ -7,7 +7,7 @@
   "author": "Alexander Fuerst <alexander@fuerst.one>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fuerst-one/ts-mv"
+    "url": "git+https://github.com/fuerst-one/ts-mv.git"
   },
   "homepage": "https://github.com/fuerst-one/ts-mv#readme",
   "bugs": "https://github.com/fuerst-one/ts-mv/issues",
@@ -27,7 +27,7 @@
     "node": ">=20"
   },
   "bin": {
-    "ts-mv": "./dist/cli.js"
+    "ts-mv": "dist/cli.js"
   },
   "exports": {
     ".": {
