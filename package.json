@@ -1,0 +1,62 @@
+{
+  "name": "ts-mv",
+  "version": "1.0.0",
+  "description": "Move TypeScript files with automatic import path rewriting via ts-morph AST analysis",
+  "type": "module",
+  "license": "MIT",
+  "author": "Alexander Fuerst <alexander@fuerst.one>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fuerst-one/ts-mv"
+  },
+  "homepage": "https://github.com/fuerst-one/ts-mv#readme",
+  "bugs": "https://github.com/fuerst-one/ts-mv/issues",
+  "keywords": [
+    "typescript",
+    "move",
+    "rename",
+    "refactor",
+    "imports",
+    "ts-morph",
+    "ast",
+    "codemod",
+    "cli"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "ts-mv": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/mover.js",
+      "types": "./dist/mover.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/cli.ts src/mover.ts src/resolver.ts --format esm --target node20 --clean --dts",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "pnpm test && pnpm build"
+  },
+  "dependencies": {
+    "ts-morph": "^25.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "react": "^19.2.4",
+    "tsup": "^8.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^4.1.1"
+  }
+}

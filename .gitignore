@@ -1,0 +1,6 @@
+.env
+.claude
+.test
+dist
+data
+node_modules
